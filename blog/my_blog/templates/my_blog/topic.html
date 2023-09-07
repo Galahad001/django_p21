@@ -1,0 +1,16 @@
+{% extends 'my_blog/base.html' %}  <!--extends сообщает от какого шаблон он наследует-->
+
+
+
+{% block content %}    <!-- Все что не наследуетя от род шаблона попадает в блок content-->
+    <p>Topic: {{topic}}</p>
+
+    <p>Cat:</p>
+    <ul>
+        {% for cat in cats %}        <!-- Шаблонный тег эквивалентный циклу for-->
+        <li>{{cat.date}}</li>              <!-- Код topics будет заменен на значение topics при каждом проде цикла-->
+        {% empty %}                     <!--Сообщает что делать при отсутсвии цикла-->
+        <li>No topics</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

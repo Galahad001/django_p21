@@ -11,4 +11,11 @@ def topics(request):        # Необходимый параметр request п
     context = {'topics': topics}                # Определяется контекст который передается шаблону. Ключ-это имя по которому в шаблонк можно получить значение
     return render(request, 'my_blog/topics.html', context)
 
+
+def topic(request, topic_id):
+    """Выводит одну тему и все ее записи"""
+    topic = Topic.objects.all(id=topic_id)
+    cats = topic.cat_set.order_by('-date')
+    context = {'topic':topic, 'cats':cats}
+    return render(request, 'my_blog/topic.html', context)
 # Create your views here.
