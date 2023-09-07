@@ -1,0 +1,17 @@
+python -V
+
+python -m venv .venv
+.venv/Scripts/activate
+deactivate
+pip install django==3.2
+django-admin startproject blog
+py manage.py migrate        
+py manage.py makemigrations
+python manage.py runserver
+python manage.py startapp my_blog
+py manage.py createsuperuser
+http://127.0.0.1:8000/-прослушивание запросов на порте 8000 локального поста(localhost)
+Проект представляет собой группу отдельных приложений, совместная работа которых обеспечивает работу проекта в целом
+Фаил models - исп. для определения данных, которыми нужно управлять в нашем приложении
+
+Создание страницы 3-стадии: Определение URL, написание представления, написание шаблонов
