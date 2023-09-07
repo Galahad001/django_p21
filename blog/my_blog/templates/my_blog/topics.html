@@ -7,7 +7,9 @@
 
     <ul>
         {% for topic in topics %}        <!-- Шаблонный тег эквивалентный циклу for-->
-        <li>{{topic}}</li>              <!-- Код topics будет заменен на значение topics при каждом проде цикла-->
+        <li>
+            <a href="{% url 'topic' topic.id %}">{{topic}}</a>
+        </li>              <!-- Код topics будет заменен на значение topics при каждом проде цикла-->
         {% empty %}                     <!--Сообщает что делать при отсутсвии цикла-->
         <li>No topics</li>
         {% endfor %}

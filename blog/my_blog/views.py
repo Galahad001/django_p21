@@ -14,7 +14,7 @@ def topics(request):        # Необходимый параметр request п
 
 def topic(request, topic_id):
     """Выводит одну тему и все ее записи"""
-    topic = Topic.objects.all(id=topic_id)
+    topic = Topic.objects.get(id=topic_id)
     cats = topic.cat_set.order_by('-date')
     context = {'topic':topic, 'cats':cats}
     return render(request, 'my_blog/topic.html', context)
